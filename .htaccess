@@ -1,0 +1,32 @@
+RewriteEngine On
+
+# Chuyển hướng HTTP sang HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#CLIENT
+RewriteRule ^auth/login$ /Page/auth/login.php [L]
+RewriteRule ^auth/register$ /Page/auth/register.php [L]
+RewriteRule ^auth/logout$ /Page/auth/logout.php [L]
+RewriteRule ^profile$ /Page/profile.php [L]
+RewriteRule ^lich-su-mua-hang$ /Page/sanpham/lichsumuahang.php [L]
+RewriteRule ^nap-atm$ /Page/napbank/nap-atm.php [L]
+RewriteRule ^ls-nap-atm$ /Page/napbank/ls-nap-atm.php [L]
+RewriteRule ^view-sp/([A-Za-z0-9-]+) /Page/sanpham/view-san-pham.php?list=$1 [L]
+RewriteRule ^view-ls/([A-Za-z0-9-]+) /Page/sanpham/view-lssp.php?id=$1 [L]
+RewriteRule ^reset-pass$ /Page/auth/resetpass.php [L]
+RewriteRule ^dat-pass/([A-Za-z0-9-]+) /Page/auth/datpass.php?id=$1 [L]
+
+
+#ADMIN
+RewriteRule ^admin-nc$ /admin/home.php [L]
+RewriteRule ^admin-nc/danh-muc$ /admin/ProductCategory.php [L]
+RewriteRule ^admin-nc/users$ /admin/user.php [L]
+RewriteRule ^admin-nc/edit-thanhvien/([A-Za-z0-9-]+) /admin/edit-thanhvien.php?id=$1 [L]
+RewriteRule ^admin-nc/tk-nap$ /admin/tk-nap.php [L]
+RewriteRule ^admin-nc/setting$ /admin/setting.php [L]
+RewriteRule ^admin-nc/list-bank$ /admin/danh-sach-bank.php [L]
+RewriteRule ^admin-nc/edit-bank/([A-Za-z0-9-]+) /admin/edit-bank.php?id=$1 [L]
+RewriteRule ^admin-nc/add-bank$ /admin/add-bank.php [L]
+RewriteRule ^admin-nc/ls-mua-hang$ /admin/lich-su-mua-hang.php [L]
+
